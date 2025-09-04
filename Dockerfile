@@ -1,4 +1,4 @@
-FROM node:20
+FROM node:22.19
 #need platform flag before n20 if building on arm
 
 # Install dependencies for Puppeteer
@@ -39,7 +39,7 @@ RUN apt-get update && apt-get install -y chromium && \
     rm -rf /var/lib/apt/lists/*
 
 # Install n8n and Puppeteer
-RUN npm install -g n8n@1.108.2 puppeteer
+RUN npm install -g n8n@1.108.2 puppeteer npm
 
 # Add npm global bin to PATH to ensure n8n executable is found
 ENV PATH="/usr/local/lib/node_modules/n8n/bin:$PATH"
